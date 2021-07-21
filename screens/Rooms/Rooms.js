@@ -12,7 +12,7 @@ export const Rooms = () => {
     return (
         <View style={roomsStyle.container}>
             <Navbar title="Комнаты" />
-            <RoomsList rooms={rooms} />
+            {rooms.length > 0 && <RoomsList rooms={rooms} />}
         </View>
     )
 }

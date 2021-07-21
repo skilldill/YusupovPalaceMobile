@@ -1,19 +1,22 @@
 import React from "react";
-import {ScrollView, Image} from "react-native";
-import { getFullImageUrl } from "../../../../shared/utils";
+import {FlatList, ScrollView} from "react-native";
+import { RoomCard } from "../RoomCard/RoomCard";
 
 import {roomsListStyle} from "./style";
 
 export const RoomsList = ({rooms}) => {
+    // return (
+    //     <FlatList 
+    //         style={roomsListStyle.container}
+    //         data={rooms}
+    //         renderItem={(room) => <RoomCard room={room} />}
+    //         keyExtractor={(room) => room.id}
+    //     />
+    // )
+
     return (
         <ScrollView style={roomsListStyle.container}>
-            {rooms.map((room, i) => 
-                <Image 
-                    key={i} 
-                    source={{uri: getFullImageUrl(room.preview)}} 
-                    height={100}
-                />
-            )}
+            {rooms.map((room, i) => <RoomCard key={room.id} room={room} />)}
         </ScrollView>
     )
 }
