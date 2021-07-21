@@ -11,7 +11,7 @@ export const Tabs = ({children}) => {
             <View style={tabsStyle.container}>
                 {children[activeIndex].props.children}
             </View>
-            <View>
+            <View style={tabsStyle.tabbar}>
                 {children.map((child, i) => 
                     <TouchableOpacity onPress={() => setActiveIndex(i)}>
                         {i === activeIndex ? child.props.iconActive : child.props.icon}

@@ -6,7 +6,7 @@ import { Navigation } from './navigation';
 
 const App = () => {
   return (
-    <SafeAreaView style={{flex: 1}}>
+    <SafeAreaView style={{flex: 1, backgroundColor: '#1A1A1F'}}>
       <Navigation />
     </SafeAreaView>
   );
