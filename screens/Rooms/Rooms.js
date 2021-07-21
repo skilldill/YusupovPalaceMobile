@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {View} from "react-native";
 
 import { Navbar } from "../../core/components";
@@ -7,7 +7,13 @@ import { RoomsList } from "./components";
 import {roomsStyle} from "./style";
 
 export const Rooms = () => {
-    const {rooms} = RoomsService();
+    const {rooms, fetchRooms} = RoomsService();
+    
+    useEffect(() => {
+        if (rooms.length === 0) {
+            fetchRooms();
+        }
+    } ,[rooms])
 
     return (
         <View style={roomsStyle.container}>

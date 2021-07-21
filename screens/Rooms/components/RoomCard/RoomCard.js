@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useMemo } from "react";
 import {View, Image, Text, TouchableOpacity} from "react-native";
 
 import {roomCardStyle} from "./style";
 import {getFullImageUrl} from "../../../../shared/utils";
+import { RoomsService } from "../../../../core/context";
 
 export const RoomCard = ({room}) => {
+    const {likedIds, likeRoom} = RoomsService();
+
+    const likeIcon = useMemo(() => likedIds.includes(room.id) ? 
+        require('../../../../assets/icon-24-like-active.png') :
+        require('../../../../assets/icon-24-like.png'), 
+    [likedIds, room])
+
     return (
         <View style={roomCardStyle.container}>
             <Image 
@@ -17,8 +25,11 @@ export const RoomCard = ({room}) => {
                 <Text style={roomCardStyle.subtitle}>Комната №{room.id}</Text>    
             </View>
 
-            <TouchableOpacity style={roomCardStyle.like}>
-                <Image source={require('../../../../assets/icon-24-like.png')} />
+            <TouchableOpacity 
+                style={roomCardStyle.like} 
+                onPress={() => likeRoom(room.id)}
+            >
+                <Image source={likeIcon} />
             </TouchableOpacity>
         </View>
     )

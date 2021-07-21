@@ -2,5 +2,7 @@ import {createContext} from "react";
 
 export const RoomsContext = createContext({
     rooms: [],
-    fetchRooms: () => {}
+    likedIds: [],
+    fetchRooms: () => {},
+    likeRoom: (id) => {}
 })
