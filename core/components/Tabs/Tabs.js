@@ -13,7 +13,7 @@ export const Tabs = ({children}) => {
             </View>
             <View style={tabsStyle.tabbar}>
                 {children.map((child, i) => 
-                    <TouchableOpacity onPress={() => setActiveIndex(i)}>
+                    <TouchableOpacity key={i} onPress={() => setActiveIndex(i)}>
                         {i === activeIndex ? child.props.iconActive : child.props.icon}
                     </TouchableOpacity>
                 )}
