@@ -1,7 +1,7 @@
 import {StyleSheet} from "react-native";
 
-export const roomsStyle = StyleSheet.create({
+export const roomsListStyle = StyleSheet.create({
     container: {
-        flex: 1,
+        flex: 1
     }
 })
