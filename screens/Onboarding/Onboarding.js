@@ -10,13 +10,14 @@ const boards = [
     <Board src={require('./assets/board-thrid.png')} description="Слушай историю дворца с лекцией нашего гида" />,
 ]
 
-export const Onboarding = () => {
+export const Onboarding = ({onStart}) => {
     const fadeAnim = useRef(new Animated.Value(1)).current;
 
     const [activeBoard, setActiveBoard] = useState(0);
 
     const next = useCallback(() => {
         if (activeBoard === boards.length - 1) {
+            onStart();
             return;
         }
 

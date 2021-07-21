@@ -1,13 +1,17 @@
-import React from "react";
+import React, { useCallback, useState } from "react";
 
 import {Tabs, Tab, TabIcon} from "../core/components";
 import {LikedRooms, Rooms} from "../screens";
 import { Onboarding } from "../screens/Onboarding/Onboarding";
 
 export const Navigation = () => {
-    return <Onboarding />
+    const [started, setStarted] = useState(false);
 
-    return (
+    const handleStart = useCallback(() => {
+        setStarted(true);
+    }, [])
+
+    return started ? (
         <Tabs>
             <Tab 
                 name="full_list"
@@ -25,5 +29,5 @@ export const Navigation = () => {
                 <LikedRooms />
             </Tab>
         </Tabs>
-    )
+    ) : <Onboarding onStart={handleStart}/>
 }
