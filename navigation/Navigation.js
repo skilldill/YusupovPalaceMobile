@@ -2,8 +2,11 @@ import React from "react";
 
 import {Tabs, Tab, TabIcon} from "../core/components";
 import {LikedRooms, Rooms} from "../screens";
+import { Onboarding } from "../screens/Onboarding/Onboarding";
 
 export const Navigation = () => {
+    return <Onboarding />
+
     return (
         <Tabs>
             <Tab 
