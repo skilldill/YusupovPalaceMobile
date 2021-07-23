@@ -4,6 +4,7 @@ import {createStackNavigator} from "@react-navigation/stack";
 
 import {navbarStyle} from "./style";
 import {Rooms, Room} from "../screens";
+import { Image } from "react-native";
 
 const Stack = createStackNavigator();
 
@@ -11,6 +12,7 @@ const getOptions = (title) => {
     const options = {
         title,
         headerBackTitleVisible: false,
+        headerBackImage: () => <Image style={{marginLeft: 12}} source={require('../assets/icon-back.png')} />,
         ...navbarStyle
     }
 
