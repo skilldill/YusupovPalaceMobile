@@ -10,10 +10,10 @@ export const RoomsNavigator = ({liked}) => {
     return (
         <NavigationContainer>
             <Stack.Navigator>
-                <Stack.Screen name="Rooms">
+                <Stack.Screen name="Rooms" options={{title: liked ? 'Понравилось' : 'Комнаты'}}>
                     {(props) => <Rooms {...props} liked={liked} />}
                 </Stack.Screen>
-                
+
                 <Stack.Screen name="Room" component={Room} />
             </Stack.Navigator>
         </NavigationContainer>
