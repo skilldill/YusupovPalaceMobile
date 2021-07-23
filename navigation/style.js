@@ -5,7 +5,8 @@ export const navbarStyle = StyleSheet.create({
         color: '#F8F9FA',
         fontSize: 18, 
         fontWeight: '600', 
-        paddingVertical: 12
+        paddingVertical: 12,
+        alignSelf: 'center'
     },
 
     headerStyle: {

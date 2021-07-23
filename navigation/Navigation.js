@@ -13,7 +13,8 @@ export const Navigation = () => {
     const getWatchedOnboarding = async () => {
         try {
             const data = await watchedOnboardingStorage.getItem();
-            const isWatched = JSON.stringify(data);
+            const isWatched = JSON.parse(data);
+
             setStarted(isWatched);
         } catch(error) {
             console.log(error);
