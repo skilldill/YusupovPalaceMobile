@@ -1,5 +1,5 @@
-import React, { useMemo } from "react";
-import {View, Image, Text, TouchableOpacity} from "react-native";
+import React, { useCallback, useMemo } from "react";
+import {View, Image, Text, TouchableOpacity, Touchable, Pressable} from "react-native";
 
 import {roomCardStyle} from "./style";
 import {getFullImageUrl} from "../../../../shared/utils";
@@ -13,8 +13,12 @@ export const RoomCard = ({room}) => {
         require('../../../../assets/icon-24-like.png'), 
     [likedIds, room])
 
+    const handlePress = useCallback(() => {
+        console.log(room);
+    }, [room])
+
     return (
-        <View style={roomCardStyle.container}>
+        <Pressable style={roomCardStyle.container} onPress={handlePress}>
             <Image 
                 style={roomCardStyle.preview}
                 source={{uri: getFullImageUrl(room.preview)}}
@@ -31,6 +35,6 @@ export const RoomCard = ({room}) => {
             >
                 <Image source={likeIcon} />
             </TouchableOpacity>
-        </View>
+        </Pressable>
     )
 }
