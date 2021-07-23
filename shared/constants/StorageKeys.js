@@ -1,3 +1,4 @@
 export const STORAGE_KEYS = {
-    likedIds: '@likedIds'
+    likedIds: '@likedIds',
+    watchedOnboarding: '@watchedOnboarding'
 }

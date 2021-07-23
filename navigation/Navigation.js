@@ -1,12 +1,28 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
+import {useAsyncStorage} from "@react-native-async-storage/async-storage";
 
 import {Tabs, Tab, TabIcon} from "../core/components";
-import {Rooms} from "../screens";
 import { Onboarding } from "../screens/Onboarding/Onboarding";
 import { RoomsNavigator } from "./RoomsNavigator";
+import {STORAGE_KEYS} from "../shared/constants";
 
 export const Navigation = () => {
     const [started, setStarted] = useState(false);
+    const watchedOnboardingStorage = useAsyncStorage(STORAGE_KEYS.watchedOnboarding);
+
+    const getWatchedOnboarding = async () => {
+        try {
+            const data = await watchedOnboardingStorage.getItem();
+            const isWatched = JSON.stringify(data);
+            setStarted(isWatched);
+        } catch(error) {
+            console.log(error);
+        }
+    }
+
+    useEffect(() => {
+        getWatchedOnboarding();
+    }, [])
 
     const handleStart = useCallback(() => {
         setStarted(true);

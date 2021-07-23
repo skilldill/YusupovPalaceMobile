@@ -1,8 +1,10 @@
 import React, { useCallback, useMemo, useState, useRef } from "react";
 import {TouchableOpacity, View, Text, Animated} from "react-native";
+import {useAsyncStorage} from "@react-native-async-storage/async-storage";
 
 import {onboardingStyle} from "./style";
 import {Board} from "./components";
+import {STORAGE_KEYS} from "../../shared/constants";
 
 const boards = [
     <Board src={require('./assets/board-first.png')} description="Пройди дворец Юсуповых вместе с приложением" />,
@@ -15,8 +17,19 @@ export const Onboarding = ({onStart}) => {
 
     const [activeBoard, setActiveBoard] = useState(0);
 
+    const watchedOnboardingStorage = useAsyncStorage(STORAGE_KEYS.watchedOnboarding);
+
+    const setWatchedOnboarding = async () => {
+        try {   
+            await watchedOnboardingStorage.setItem(JSON.stringify(true));
+        } catch(error) {
+            console.log(error);
+        }
+    }
+
     const next = useCallback(() => {
         if (activeBoard === boards.length - 1) {
+            setWatchedOnboarding();
             onStart();
             return;
         }
