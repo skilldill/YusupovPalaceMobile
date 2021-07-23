@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from "react";
 
 import {Tabs, Tab, TabIcon} from "../core/components";
-import {LikedRooms, Rooms} from "../screens";
+import {Rooms} from "../screens";
 import { Onboarding } from "../screens/Onboarding/Onboarding";
 
 export const Navigation = () => {
@@ -26,7 +26,7 @@ export const Navigation = () => {
                 icon={<TabIcon.Default iconSrc={require('../assets/icon-24-like.png')} title="Понравилось" />}
                 iconActive={<TabIcon.Active iconSrc={require('../assets/icon-24-like-active.png')} title="Понравилось" />}
             >
-                <LikedRooms />
+                <Rooms liked />
             </Tab>
         </Tabs>
     ) : <Onboarding onStart={handleStart}/>
