@@ -3,6 +3,7 @@ import React, { useCallback, useState } from "react";
 import {Tabs, Tab, TabIcon} from "../core/components";
 import {Rooms} from "../screens";
 import { Onboarding } from "../screens/Onboarding/Onboarding";
+import { RoomsNavigator } from "./RoomsNavigator";
 
 export const Navigation = () => {
     const [started, setStarted] = useState(false);
@@ -18,7 +19,7 @@ export const Navigation = () => {
                 icon={<TabIcon.Default iconSrc={require('../assets/icon-24-list.png')} title="Комнаты" />}
                 iconActive={<TabIcon.Active iconSrc={require('../assets/icon-24-list-active.png')} title="Комнаты" />}
             >
-                <Rooms />
+                <RoomsNavigator />
             </Tab>
 
             <Tab 

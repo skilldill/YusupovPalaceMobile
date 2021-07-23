@@ -5,7 +5,7 @@ import {roomCardStyle} from "./style";
 import {getFullImageUrl} from "../../../../shared/utils";
 import { RoomsService } from "../../../../core/context";
 
-export const RoomCard = ({room}) => {
+export const RoomCard = ({room, onPress}) => {
     const {likedIds, likeRoom} = RoomsService();
 
     const likeIcon = useMemo(() => likedIds.includes(room.id) ? 
@@ -14,8 +14,8 @@ export const RoomCard = ({room}) => {
     [likedIds, room])
 
     const handlePress = useCallback(() => {
-        console.log(room);
-    }, [room])
+        onPress();
+    }, [room, onPress])
 
     return (
         <Pressable style={roomCardStyle.container} onPress={handlePress}>

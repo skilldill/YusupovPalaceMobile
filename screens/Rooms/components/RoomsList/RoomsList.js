@@ -4,7 +4,7 @@ import { RoomCard } from "../RoomCard/RoomCard";
 
 import {roomsListStyle} from "./style";
 
-export const RoomsList = ({rooms}) => {
+export const RoomsList = ({rooms, navigation}) => {
     // return (
     //     <FlatList 
     //         style={roomsListStyle.container}
@@ -16,7 +16,13 @@ export const RoomsList = ({rooms}) => {
 
     return (
         <ScrollView style={roomsListStyle.container}>
-            {rooms.map((room, i) => <RoomCard key={room.id} room={room} />)}
+            {rooms.map((room, i) => (
+                <RoomCard 
+                    key={room.id} 
+                    room={room} 
+                    onPress={() => navigation.navigate('Room')}
+                />
+            ))}
         </ScrollView>
     )
 }

@@ -6,7 +6,7 @@ import {RoomsService} from "../../core/context";
 import { RoomsList } from "./components";
 import {roomsStyle} from "./style";
 
-export const Rooms = ({liked}) => {
+export const Rooms = ({navigation, liked}) => {
     const {rooms, fetchRooms, likedIds} = RoomsService();
     
     useEffect(() => {
@@ -20,8 +20,8 @@ export const Rooms = ({liked}) => {
 
     return (
         <View style={roomsStyle.container}>
-            <Navbar title="Комнаты" />
-            {rooms.length > 0 && <RoomsList rooms={preparedRooms} />}
+            {/* <Navbar title="Комнаты" /> */}
+            {rooms.length > 0 && <RoomsList rooms={preparedRooms} navigation={navigation} />}
         </View>
     )
 }
