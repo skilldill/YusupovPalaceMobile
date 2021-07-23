@@ -27,7 +27,7 @@ export const Navigation = () => {
                 icon={<TabIcon.Default iconSrc={require('../assets/icon-24-like.png')} title="Понравилось" />}
                 iconActive={<TabIcon.Active iconSrc={require('../assets/icon-24-like-active.png')} title="Понравилось" />}
             >
-                <Rooms liked />
+                <RoomsNavigator liked />
             </Tab>
         </Tabs>
     ) : <Onboarding onStart={handleStart}/>

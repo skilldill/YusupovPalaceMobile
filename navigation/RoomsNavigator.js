@@ -6,11 +6,14 @@ import {Rooms, Room} from "../screens";
 
 const Stack = createStackNavigator();
 
-export const RoomsNavigator = () => {
+export const RoomsNavigator = ({liked}) => {
     return (
         <NavigationContainer>
             <Stack.Navigator>
-                <Stack.Screen name="Rooms" component={Rooms}/>
+                <Stack.Screen name="Rooms">
+                    {(props) => <Rooms {...props} liked={liked} />}
+                </Stack.Screen>
+                
                 <Stack.Screen name="Room" component={Room} />
             </Stack.Navigator>
         </NavigationContainer>
