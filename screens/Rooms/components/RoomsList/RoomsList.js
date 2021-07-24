@@ -20,7 +20,7 @@ export const RoomsList = ({rooms, navigation}) => {
                 <RoomCard 
                     key={room.id} 
                     room={room} 
-                    onPress={() => navigation.navigate('Room')}
+                    onPress={() => navigation.navigate('Room', {roomId: room.id})}
                 />
             ))}
         </ScrollView>

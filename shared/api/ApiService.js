@@ -7,7 +7,7 @@ export class ApiService {
     }
 
     static getRoom(id) {
-        const url = API_URLS.rooms.replace(':id', id);
+        const url = API_URLS.room.replace(':id', id);
         return http.get(url);
     }
 }

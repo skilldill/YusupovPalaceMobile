@@ -1,10 +1,10 @@
 import React from "react";
+import { Image, Platform } from "react-native";
 import {NavigationContainer} from "@react-navigation/native";
 import {createStackNavigator} from "@react-navigation/stack";
 
 import {navbarStyle} from "./style";
 import {Rooms, Room} from "../screens";
-import { Image } from "react-native";
 
 const Stack = createStackNavigator();
 
@@ -16,7 +16,22 @@ const getOptions = (title) => {
         ...navbarStyle
     }
 
-    console.log(options);
+    return options;
+}
+
+const getRoomOptions = () => {
+    const commonOptions = getOptions('');
+    const options = {
+        ...commonOptions,
+        headerTitleStyle: {
+            color: '#F8F9FA',
+            fontSize: 18, 
+            fontWeight: '600', 
+            paddingVertical: 12,
+            alignSelf: 'center',
+            transform: [{ translateX: Platform.OS === 'ios' ? 0 : -30 }]
+        },
+    }
 
     return options;
 }
@@ -29,7 +44,7 @@ export const RoomsNavigator = ({liked}) => {
                     {(props) => <Rooms {...props} liked={liked} />}
                 </Stack.Screen>
 
-                <Stack.Screen name="Room" component={Room} options={getOptions('')} />
+                <Stack.Screen name="Room" component={Room} options={getRoomOptions()} />
             </Stack.Navigator>
         </NavigationContainer>
     )

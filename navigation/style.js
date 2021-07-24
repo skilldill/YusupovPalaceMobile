@@ -1,4 +1,4 @@
-import {StyleSheet} from "react-native";
+import {StyleSheet, Platform} from "react-native";
 
 export const navbarStyle = StyleSheet.create({
     headerTitleStyle: {
@@ -6,10 +6,10 @@ export const navbarStyle = StyleSheet.create({
         fontSize: 18, 
         fontWeight: '600', 
         paddingVertical: 12,
-        alignSelf: 'center'
+        alignSelf: 'center',
     },
 
     headerStyle: {
-        backgroundColor: '#050506'
+        backgroundColor: '#050506',
     }
 })
