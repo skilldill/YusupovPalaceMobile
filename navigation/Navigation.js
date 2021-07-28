@@ -7,20 +7,22 @@ import { RoomsNavigator } from "./RoomsNavigator";
 import {STORAGE_KEYS} from "../shared/constants";
 import { View } from "react-native";
 
+import {ListSVG, ListActiveSVG, LikeActiveSVG, LikeSVG} from "../assets";
+
 const TabNavigation = () => (
     <Tabs>
         <Tab 
             name="full_list"
-            icon={<TabIcon.Default iconSrc={require('../assets/icon-24-list.png')} title="Комнаты" />}
-            iconActive={<TabIcon.Active iconSrc={require('../assets/icon-24-list-active.png')} title="Комнаты" />}
+            icon={<TabIcon.Default icon={<LikeSVG />} title="Комнаты" />}
+            iconActive={<TabIcon.Active icon={<LikeSVG />} title="Комнаты" />}
         >
             <RoomsNavigator />
         </Tab>
 
         <Tab 
             name="chosen_list"
-            icon={<TabIcon.Default iconSrc={require('../assets/icon-24-like.png')} title="Понравилось" />}
-            iconActive={<TabIcon.Active iconSrc={require('../assets/icon-24-like-active.png')} title="Понравилось" />}
+            icon={<TabIcon.Default icon={<LikeSVG />} title="Понравилось" />}
+            iconActive={<TabIcon.Active icon={<LikeSVG />} title="Понравилось" />}
         >
             <RoomsNavigator liked />
         </Tab>
