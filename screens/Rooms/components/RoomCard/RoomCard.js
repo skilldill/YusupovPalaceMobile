@@ -2,7 +2,7 @@ import React, { useCallback, useMemo } from "react";
 import {View, Image, Text, TouchableOpacity, Touchable, Pressable} from "react-native";
 
 import {roomCardStyle} from "./style";
-import {getFullImageUrl} from "../../../../shared/utils";
+import {getFullStaticUrl} from "../../../../shared/utils";
 import { RoomsService } from "../../../../core/context";
 
 export const RoomCard = ({room, onPress}) => {
@@ -21,7 +21,7 @@ export const RoomCard = ({room, onPress}) => {
         <Pressable style={roomCardStyle.container} onPress={handlePress}>
             <Image 
                 style={roomCardStyle.preview}
-                source={{uri: getFullImageUrl(room.preview)}}
+                source={{uri: getFullStaticUrl(room.preview)}}
             />
             
             <View style={roomCardStyle.info}>

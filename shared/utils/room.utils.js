@@ -1,6 +1,6 @@
 import {API_URLS} from "../constants";
 
-export const getFullImageUrl = (path) => {
+export const getFullStaticUrl = (path) => {
     return `${API_URLS.base}${path}`;
 }
 
