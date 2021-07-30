@@ -5629,6 +5629,14 @@ react-native-screens@^3.4.0:
   dependencies:
     warn-once "^0.1.0"
 
+react-native-swipe-boards@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/react-native-swipe-boards/-/react-native-swipe-boards-1.0.0.tgz#a02d6a7d11a72d356ab18839b6c41ba8a4d11683"
+  integrity sha512-e4RQcmL3U26cdcxk41iZTHuxwrW9SjpIwiQ7qvLyE61zZDszY7nZLvaiyS6cO6zDg3t4MVDG/CVFi/OpU7egZw==
+  dependencies:
+    react "17.0.1"
+    react-native "0.64.2"
+
 react-native@0.64.2:
   version "0.64.2"
   resolved "https://registry.yarnpkg.com/react-native/-/react-native-0.64.2.tgz#233b6ed84ac4749c8bc2a2d6cf63577a1c437d18"
