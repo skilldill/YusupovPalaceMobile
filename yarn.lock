@@ -1443,6 +1443,11 @@
     "@typescript-eslint/types" "4.28.4"
     eslint-visitor-keys "^2.0.0"
 
+"@use-it/interval@^0.1.3":
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/@use-it/interval/-/interval-0.1.4.tgz#bcb862665796cd675d3e8a6d7ac458f9cefe8b16"
+  integrity sha512-ZjBRc7BTVpcoDPxupiCiA0vKicrjYVIq7AMwwBbg1w5ogKVXU60BZDpFkJK62sHzC/LeyT2QZMjdRZkoxMGf9g==
+
 abab@^2.0.3, abab@^2.0.5:
   version "2.0.5"
   resolved "https://registry.yarnpkg.com/abab/-/abab-2.0.5.tgz#c0b678fb32d60fc1219c784d6a826fe385aeb79a"
@@ -5636,6 +5641,13 @@ react-native-swipe-boards@^1.0.0:
   dependencies:
     react "17.0.1"
     react-native "0.64.2"
+
+react-native-use-sound@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/react-native-use-sound/-/react-native-use-sound-1.2.1.tgz#d79e2c7856bcea36f9ff5fec5258d31904cc3206"
+  integrity sha512-jpA+Mh0daK+P9RZuzzAW0+ef3og1iqR9UKglE5oQdbn0S7O0rerU2Gzn9YrxQ88F3Dv8TK9cplNjoVqsJ4Pdhw==
+  dependencies:
+    "@use-it/interval" "^0.1.3"
 
 react-native@0.64.2:
   version "0.64.2"
