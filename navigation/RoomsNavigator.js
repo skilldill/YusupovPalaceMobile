@@ -4,7 +4,7 @@ import {NavigationContainer} from "@react-navigation/native";
 import {createStackNavigator} from "@react-navigation/stack";
 
 import {navbarStyle} from "./style";
-import {Rooms, Room} from "../screens";
+import {Rooms, Room, AudioPlayer} from "../screens";
 
 const Stack = createStackNavigator();
 
@@ -38,14 +38,16 @@ const getRoomOptions = () => {
 
 export const RoomsNavigator = ({liked}) => {
     return (
-        <NavigationContainer>
-            <Stack.Navigator>
-                <Stack.Screen name="Rooms" options={liked ? getOptions('Понравилось') : getOptions('Комнаты')}>
-                    {(props) => <Rooms {...props} liked={liked} />}
-                </Stack.Screen>
+        <AudioPlayer>
+            <NavigationContainer>
+                <Stack.Navigator>
+                    <Stack.Screen name="Rooms" options={liked ? getOptions('Понравилось') : getOptions('Комнаты')}>
+                        {(props) => <Rooms {...props} liked={liked} />}
+                    </Stack.Screen>
 
-                <Stack.Screen name="Room" component={Room} options={getRoomOptions()} />
-            </Stack.Navigator>
-        </NavigationContainer>
+                    <Stack.Screen name="Room" component={Room} options={getRoomOptions()} />
+                </Stack.Navigator>
+            </NavigationContainer>
+        </AudioPlayer>
     )
 }

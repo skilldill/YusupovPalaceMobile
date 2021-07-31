@@ -1,7 +1,6 @@
 import React, { useEffect, useMemo } from "react";
 import {View} from "react-native";
 
-import { Navbar } from "../../core/components";
 import {RoomsService} from "../../core/context";
 import { RoomsList } from "./components";
 import {roomsStyle} from "./style";

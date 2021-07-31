@@ -4,15 +4,17 @@ import React from 'react';
 import {SafeAreaView} from 'react-native';
 
 import { Navigation } from './navigation';
-import {RoomsProvider} from "./core/context";
+import {AudioPlayerProvider, RoomsProvider} from "./core/context";
 
 const App = () => {
   return (
-    <RoomsProvider>
-      <SafeAreaView style={{flex: 1, backgroundColor: '#1A1A1F'}}>
-        <Navigation />
-      </SafeAreaView>
-    </RoomsProvider>
+    <AudioPlayerProvider>
+      <RoomsProvider>
+        <SafeAreaView style={{flex: 1, backgroundColor: '#1A1A1F'}}>
+          <Navigation />
+        </SafeAreaView>
+      </RoomsProvider>
+    </AudioPlayerProvider>
   );
 };
 
