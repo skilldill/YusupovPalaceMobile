@@ -4,6 +4,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import { useAudioPlayer } from "../../core/context";
 
 import { ApiService } from "../../shared/api";
+import { Loader } from "../../shared/components";
 import { getFullStaticUrl, prepareDescription, getReadableDuration } from "../../shared/utils";
 import {roomStyle} from "./style";
 
@@ -44,7 +45,11 @@ export const Room = ({route, navigation}) => {
     }
     
     if (!roomData) {
-        return <View style={roomStyle.container} />
+        return (
+            <View style={roomStyle.container}>
+                <Loader />
+            </View>
+        )
     }
 
     return (

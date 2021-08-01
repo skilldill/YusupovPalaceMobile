@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo } from "react";
 import {View} from "react-native";
 
+import {Loader} from "../../shared/components";
 import {RoomsService} from "../../core/context";
 import { RoomsList } from "./components";
 import {roomsStyle} from "./style";
@@ -19,8 +20,10 @@ export const Rooms = ({navigation, liked}) => {
 
     return (
         <View style={roomsStyle.container}>
-            {/* <Navbar title="Комнаты" /> */}
-            {rooms.length > 0 && <RoomsList rooms={preparedRooms} navigation={navigation} />}
+            {rooms.length > 0 ? 
+                <RoomsList rooms={preparedRooms} navigation={navigation} /> :
+                <Loader />
+            }
         </View>
     )
 }

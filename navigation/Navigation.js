@@ -6,6 +6,7 @@ import { Onboarding } from "../screens/Onboarding/Onboarding";
 import { RoomsNavigator } from "./RoomsNavigator";
 import {STORAGE_KEYS} from "../shared/constants";
 import { View } from "react-native";
+import { Loader } from "../shared/components";
 
 const TabNavigation = () => (
     <Tabs>
@@ -50,5 +51,10 @@ export const Navigation = () => {
         getWatchedOnboarding();
     }, [])
 
-    return !!screen ? screen : <View style={{flex: 1, backgroundColor: '#050506'}} />
+    return !!screen ? 
+        screen : (
+            <View style={{flex: 1, backgroundColor: '#050506'}}>
+                <Loader />
+            </View>
+        )
 }
