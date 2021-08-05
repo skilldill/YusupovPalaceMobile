@@ -37,11 +37,37 @@ export const audioPlayerScreenStyle = StyleSheet.create({
         lineHeight: 24,
         fontWeight: '600',
         color: '#868E96',
-        textAlign: 'center'
+        textAlign: 'center',
+        marginBottom: 50
     },
 
     timeRow: {
         flexDirection: 'row',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        marginTop: 10
+    },
+
+    time: {
+        fontSize: 18,
+        lineHeight: 24,
+        color: '#F8F9FA',
+    },
+
+    controls: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        width: 185,
+        alignSelf: 'center',
+        marginTop: 12
+    },
+
+    buttonCircle: {
+        width: 60,
+        height: 60,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#fff',
+        borderRadius: 100
     }
 })
