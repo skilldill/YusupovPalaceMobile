@@ -9,5 +9,6 @@ export const AudioPlayerContext = createContext({
     plaing: false,
     pausing: false,
     roomData: null,
+    time: 0,
     setRoomData: (data) => {}
 })

@@ -47,10 +47,13 @@ export const AudioPlayer = ({ children }) => {
             )}
             <Modal
                 animationType="slide"
-                transparent={true}
+                transparent
                 visible={showPlayer}
             >
-                <AudioPlayerScreen onClose={() => setShowPlayer(false)} />
+                <AudioPlayerScreen 
+                    onClose={() => setShowPlayer(false)} 
+                    room={audioPlayer.roomData} 
+                />
             </Modal>
         </View>
     )
