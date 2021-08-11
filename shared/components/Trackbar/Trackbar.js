@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect, useMemo } from "react";
 import {View, Dimensions} from "react-native";
 
 import {trackbarStyle} from "./style";
-import {percentsToPX, valueToPercents} from "./Tracbar.utils";
+import {percentsToPX, valueToPercents} from "./Trackbar.utils";
 
 const SCREEN_WIDTH = Dimensions.get('screen').width;
 
