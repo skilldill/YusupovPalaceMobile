@@ -40,7 +40,11 @@ export const AudioPlayerScreen = ({ onClose, room }) => {
                 <Text style={audioPlayerScreenStyle.title}>{room.name}</Text>
                 <Text style={audioPlayerScreenStyle.subTitle}>Комната №{room.id}</Text>
                 
-                <Trackbar max={audioPlayer.audioData.duration} value={audioPlayer.time} />
+                <Trackbar 
+                    max={audioPlayer.audioData.duration} 
+                    value={audioPlayer.time}
+                    parrentPaddings={32}
+                />
                 
                 <View style={audioPlayerScreenStyle.timeRow}>
                     <Text style={audioPlayerScreenStyle.time}>

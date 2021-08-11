@@ -2,7 +2,9 @@ import {StyleSheet} from "react-native";
 
 export const boardStyle = StyleSheet.create({
     container: {
-        alignItems: 'center'
+        alignItems: 'center',
+        justifyContent: 'flex-end',
+        flex: 1
     },
 
     image: {

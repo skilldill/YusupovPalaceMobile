@@ -3,14 +3,11 @@ import {StyleSheet} from "react-native";
 export const onboardingStyle = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#050506',
-        justifyContent: 'center',
-        alignItems: 'center',
-        padding: 16
+        backgroundColor: '#050506'
     },
 
     buttonNext: {
-        width: '80%',
+        width: '70%',
         height: 48,
         borderRadius: 32,
         backgroundColor: '#4945FF',
@@ -24,8 +21,14 @@ export const onboardingStyle = StyleSheet.create({
         fontWeight: '600'
     },
 
+    buttonSkipText: {
+        color: '#F8F9FA',
+        fontSize: 18,
+    },
+
     circles: {
-        marginVertical: 20,
+        marginTop: 32,
+        marginBottom: 40,
         flexDirection: 'row'
     },
 
@@ -39,5 +42,15 @@ export const onboardingStyle = StyleSheet.create({
 
     circleActive: {
         backgroundColor: '#F8F9FA'
+    },
+
+    controlsBlock: {
+        alignItems: 'center',
+    },
+
+    controls: {
+        flex: 1,
+        justifyContent: 'space-between',
+        paddingBottom: 32
     }
 })

@@ -1,90 +1,57 @@
-import React, { useCallback, useMemo, useState, useRef } from "react";
-import {TouchableOpacity, View, Text, Animated} from "react-native";
-import {useAsyncStorage} from "@react-native-async-storage/async-storage";
+import React, {useMemo, useState} from "react";
+import {TouchableOpacity, Text, View, Touchable} from "react-native";
 import {ScrollBoards, Board} from "react-native-swipe-boards";
 
-import {onboardingStyle} from "./style";
 import {Board as Card} from "./components";
-import {STORAGE_KEYS} from "../../shared/constants";
+import {onboardingStyle} from "./style";
 
-
-const boards = [
+const cards = [
     <Card src={require('./assets/board-first.png')} description="Пройди дворец Юсуповых вместе с приложением" />,
     <Card src={require('./assets/board-second.png')} description="Узнай больше об убранстве дворца и о его владельцах" />,
-    <Card src={require('./assets/board-thrid.png')} description="Слушай историю дворца с лекцией нашего гида" />,
+    <Card src={require('./assets/board-thrid.png')} description="Слушай историю дворца с лекцией нашего гида" />
 ]
 
 export const Onboarding = ({onStart}) => {
+    const [activeBoard, setActiveBoard] = useState(0);
+
+    const buttonText = useMemo(() => activeBoard === cards.length - 1 ? 'Начать' : 'Далее', [activeBoard]);
+
+    const handleNext = () => {
+        if (activeBoard < cards.length - 1) {
+            return setActiveBoard(activeBoard + 1);
+        }
+
+        onStart();
+    }
 
     return (
-        <ScrollBoards>
-            <Board>
-                <Card src={require('./assets/board-first.png')} description="Пройди дворец Юсуповых вместе с приложением" />
-            </Board>
+        <View style={onboardingStyle.container}>
+            <View style={{flex: 1}}>
+                <ScrollBoards onScroll={setActiveBoard} active={activeBoard}>
+                    {cards.map((card, i) => <Board key={i}>{card}</Board>)}
+                </ScrollBoards>
+            </View>
 
-            <Board>
-                <Card src={require('./assets/board-second.png')} description="Узнай больше об убранстве дворца и о его владельцах" />
-            </Board>
+            <View style={onboardingStyle.controls}>
+                <View style={onboardingStyle.controlsBlock}>
+                    <View style={onboardingStyle.circles}>
+                        {cards.map((card, i) => <View key={i} style={i === activeBoard ? [onboardingStyle.circle, onboardingStyle.circleActive] : onboardingStyle.circle} />)}
+                    </View>
 
-            <Board>
-                <Card src={require('./assets/board-thrid.png')} description="Слушай историю дворца с лекцией нашего гида" />
-            </Board>
-        </ScrollBoards>
+                    <TouchableOpacity 
+                        style={onboardingStyle.buttonNext} 
+                        onPress={handleNext}
+                    >
+                        <Text style={onboardingStyle.buttonNextText}>{buttonText}</Text>
+                    </TouchableOpacity>
+                </View>
+
+                <View style={onboardingStyle.controlsBlock}>
+                    <TouchableOpacity onPress={onStart}>
+                        <Text style={onboardingStyle.buttonSkipText}>Пропустить</Text>
+                    </TouchableOpacity>
+                </View>
+            </View>
+        </View>
     )
 }
-
-// export const Onboarding = ({onStart}) => {
-//     const fadeAnim = useRef(new Animated.Value(1)).current;
-
-//     const [activeBoard, setActiveBoard] = useState(0);
-
-//     const watchedOnboardingStorage = useAsyncStorage(STORAGE_KEYS.watchedOnboarding);
-
-//     const setWatchedOnboarding = async () => {
-//         try {   
-//             await watchedOnboardingStorage.setItem(JSON.stringify(true));
-//         } catch(error) {
-//             console.log(error);
-//         }
-//     }
-
-//     const next = useCallback(() => {
-//         if (activeBoard === boards.length - 1) {
-//             setWatchedOnboarding();
-//             onStart();
-//             return;
-//         }
-
-//         Animated.timing(fadeAnim, {toValue: 0, duration: 300, useNativeDriver: true}).start();
-
-//         const timeout = setTimeout(() => {
-//             setActiveBoard(activeBoard + 1);
-//             Animated.timing(fadeAnim, {toValue: 1, duration: 300, useNativeDriver: true}).start();
-//             clearTimeout(timeout);
-//         }, 300);
-
-//     }, [activeBoard, fadeAnim])
-
-//     const buttonText = useMemo(() => activeBoard === (boards.length - 1) ? 'Начать' : 'Далее', [activeBoard, boards])
-
-//     return (
-//         <View style={onboardingStyle.container}>
-//             <Animated.View style={{opacity: fadeAnim}}>
-//                 {boards[activeBoard]}
-//             </Animated.View>
-
-//             <View style={onboardingStyle.circles}>
-//                 {boards.map((board, i) => (
-//                     <View 
-//                         key={i} 
-//                         style={activeBoard === i ? [onboardingStyle.circle, onboardingStyle.circleActive] : onboardingStyle.circle} 
-//                     />
-//                 ))}
-//             </View>
-
-//             <TouchableOpacity style={onboardingStyle.buttonNext} onPress={next}>
-//                 <Text style={onboardingStyle.buttonNextText}>{buttonText}</Text>
-//             </TouchableOpacity>
-//         </View>
-//     )
-// }

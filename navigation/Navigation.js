@@ -37,7 +37,7 @@ export const Navigation = () => {
             const data = await watchedOnboardingStorage.getItem();
             const isWatched = JSON.parse(data);
 
-            if (isWatched) {
+            if (!!isWatched) {
                 setScreen(<TabNavigation />);
             } else {
                 setScreen(<Onboarding onStart={() => setScreen(<TabNavigation />)} />);
